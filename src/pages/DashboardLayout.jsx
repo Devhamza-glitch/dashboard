@@ -7,9 +7,9 @@ function DashboardLayout() {
   return (
     <>
       <Header />
-      <main className="my-3">
+      <main className="">
         <Sidebar />
-        <div className="pl-60 pt-32 pr-4">
+        <div className="pl-80 pt-32 pr-4">
           <Outlet />
         </div>
       </main>

@@ -226,12 +226,6 @@ function Customer() {
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="email"
-          header="Email"
-          headerClassName="pb-4"
-        ></Column>
-        <Column
-          className="border-t-[1px] border-gray-200 p-4"
           field="phone"
           header="Phone"
           headerClassName="pb-4"

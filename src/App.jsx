@@ -17,6 +17,7 @@ function App() {
           <Route path="dashboard" element={<DBHome />} />
           <Route path="customer" element={<Customer />} />
           <Route path="harvey" element={<Harvey />} />
+          <Route index element={<Navigate to="/login" />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

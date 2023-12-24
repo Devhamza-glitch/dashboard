@@ -119,7 +119,7 @@ function DBHome() {
             activeIndex={activeIndex}
             onTabChange={(e) => setActiveIndex(e.index)}
             pt={{
-              menuitem: "p-4 bg-white",
+              menuitem: "p-3 bg-white",
             }}
           />
         </div>

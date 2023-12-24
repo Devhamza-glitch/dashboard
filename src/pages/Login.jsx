@@ -90,7 +90,7 @@ function Login() {
                   ) : null}
                 </div>
                 <div>
-                  <div>
+                  <div className="relative">
                     <span>
                       <label htmlFor="password" className="text-primary pl-2">
                         Password
@@ -107,7 +107,7 @@ function Login() {
                         }
                       />
                       <button
-                        className="absolute right-3 top-4  flex transform cursor-pointer items-center justify-center"
+                        className="absolute right-3 top-1/2 flex transform cursor-pointer items-center justify-center"
                         type="button"
                         onClick={toggleInputType}
                       >

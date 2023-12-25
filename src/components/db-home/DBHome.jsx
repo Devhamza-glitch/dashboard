@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 import { TabMenu } from "primereact/tabmenu";
 import styled from "styled-components";

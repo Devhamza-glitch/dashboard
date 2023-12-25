@@ -6,131 +6,500 @@ import { useState } from "react";
 function Customer() {
   const dummyData = [
     {
-      fName: "John",
-      lName: "Doe",
-      email: "john.doe@example.com",
-      phone: "123-456-7890",
-      campaign: "Spring Sale",
-      status: "Active",
+      contactid: "00QNu000005apUqMAI",
+      firstname: "Erik",
+      lastname: "Brown",
+      contact_email: "erik.brown@wholefoods.com",
+      contact_phone: "+17748434750",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "booked",
+      gepeto_switch: false,
     },
     {
-      fName: "Jane",
-      lName: "Smith",
-      email: "jane.smith@example.com",
-      phone: "987-654-3210",
-      campaign: "Summer Promotion",
-      status: "Inactive",
+      contactid: "00QNu000004uj9vMAA",
+      firstname: "Kurt",
+      lastname: "Bayliss",
+      contact_email: "kurt.bayliss@fullharvest.com",
+      contact_phone: "+13177094486",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Alice",
-      lName: "Johnson",
-      email: "alice.johnson@example.com",
-      phone: "555-123-4567",
-      campaign: "Back to School",
-      status: "Active",
+      contactid: "00QNu000004v3GeMAI",
+      firstname: "Tynesha",
+      lastname: "Cummings",
+      contact_email: "info@renewyourtemple.live",
+      contact_phone: "+15513995069",
+      type: "Buyer",
+      campaign: "outbound_harvey",
+      status: "booked",
+      gepeto_switch: true,
     },
     {
-      fName: "Bob",
-      lName: "Williams",
-      email: "bob.williams@example.com",
-      phone: "111-222-3333",
-      campaign: "Holiday Special",
-      status: "Inactive",
+      contactid: "00QNu000004pqqIMAQ",
+      firstname: "Mark",
+      lastname: "R",
+      contact_email: "setters.rentals@gmail.com",
+      contact_phone: "+13152141712",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: false,
     },
     {
-      fName: "Eva",
-      lName: "Anderson",
-      email: "eva.anderson@example.com",
-      phone: "333-444-5555",
-      campaign: "Fall Discount",
-      status: "Active",
+      contactid: "00QNu000004scPNMAY",
+      firstname: "Nancy",
+      lastname: "Dudney",
+      contact_email: "nancy@patagoniaorchardsllc.com",
+      contact_phone: "+15208203190",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Michael",
-      lName: "Brown",
-      email: "michael.brown@example.com",
-      phone: "777-888-9999",
-      campaign: "New Year Sale",
-      status: "Inactive",
+      contactid: "00QNu000004raO5MAI",
+      firstname: "Daisy",
+      lastname: "Bell",
+      contact_email: "msasdj@gmail.com",
+      contact_phone: "+13128377534",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: false,
     },
     {
-      fName: "Sophia",
-      lName: "Taylor",
-      email: "sophia.taylor@example.com",
-      phone: "999-888-7777",
-      campaign: "Spring Clearance",
-      status: "Active",
+      contactid: "00QNu000004rcwCMAQ",
+      firstname: "Will",
+      lastname: "Elliott",
+      contact_email: "willcelliott13@gmail.com",
+      contact_phone: "+12315904833",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "James",
-      lName: "Miller",
-      email: "james.miller@example.com",
-      phone: "444-555-6666",
-      campaign: "Summer Flash Sale",
-      status: "Inactive",
+      contactid: "00QNu000004to6jMAA",
+      firstname: "Paula",
+      lastname: "towe",
+      contact_email: "paula@farmfaregrocery.com",
+      contact_phone: "+18646999479",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Olivia",
-      lName: "Clark",
-      email: "olivia.clark@example.com",
-      phone: "666-777-8888",
-      campaign: "Black Friday",
-      status: "Active",
+      contactid: "00QNu000004ygV8MAI",
+      firstname: "juan",
+      lastname: "gomez",
+      contact_email: "juan.yahoo@yahoo.com",
+      contact_phone: "+14078965470",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "William",
-      lName: "Turner",
-      email: "william.turner@example.com",
-      phone: "222-111-0000",
-      campaign: "Cyber Monday",
-      status: "Inactive",
+      contactid: "00QNu000004vvdfMAA",
+      firstname: "Raymond",
+      lastname: "Williams",
+      contact_email: "kippyrays@gmail.com",
+      contact_phone: "+13025935812",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Emma",
-      lName: "Moore",
-      email: "emma.moore@example.com",
-      phone: "123-987-6543",
-      campaign: "Holiday Countdown",
-      status: "Active",
+      contactid: "00QNu000004txYEMAY",
+      firstname: "Gail",
+      lastname: "Arias",
+      contact_email: "gailsgardenbakery@gmail.com",
+      contact_phone: "+17042420692",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Daniel",
-      lName: "Baker",
-      email: "daniel.baker@example.com",
-      phone: "321-654-9870",
-      campaign: "Winter Warm-Up",
-      status: "Inactive",
+      contactid: "00QNu0000050MdaMAE",
+      firstname: "Caleb",
+      lastname: "Savory",
+      contact_email: "calebdc1997@gmail.com",
+      contact_phone: "+12146093739",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Ava",
-      lName: "Hill",
-      email: "ava.hill@example.com",
-      phone: "456-789-0123",
-      campaign: "Spring Fever",
-      status: "Active",
+      contactid: "00QNu000005apUqMAI",
+      firstname: "Erik",
+      lastname: "Brown",
+      contact_email: "erik.brown@wholefoods.com",
+      contact_phone: "+17748434750",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "booked",
+      gepeto_switch: false,
     },
     {
-      fName: "Jackson",
-      lName: "Cooper",
-      email: "jackson.cooper@example.com",
-      phone: "789-012-3456",
-      campaign: "End of Year Sale",
-      status: "Inactive",
+      contactid: "00QNu000004uj9vMAA",
+      firstname: "Kurt",
+      lastname: "Bayliss",
+      contact_email: "kurt.bayliss@fullharvest.com",
+      contact_phone: "+13177094486",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
     {
-      fName: "Mia",
-      lName: "Lopez",
-      email: "mia.lopez@example.com",
-      phone: "555-666-7777",
-      campaign: "Summer Blowout",
-      status: "Active",
+      contactid: "00QNu000004v3GeMAI",
+      firstname: "Tynesha",
+      lastname: "Cummings",
+      contact_email: "info@renewyourtemple.live",
+      contact_phone: "+15513995069",
+      type: "Buyer",
+      campaign: "outbound_harvey",
+      status: "booked",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004pqqIMAQ",
+      firstname: "Mark",
+      lastname: "R",
+      contact_email: "setters.rentals@gmail.com",
+      contact_phone: "+13152141712",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004scPNMAY",
+      firstname: "Nancy",
+      lastname: "Dudney",
+      contact_email: "nancy@patagoniaorchardsllc.com",
+      contact_phone: "+15208203190",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004raO5MAI",
+      firstname: "Daisy",
+      lastname: "Bell",
+      contact_email: "msasdj@gmail.com",
+      contact_phone: "+13128377534",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004rcwCMAQ",
+      firstname: "Will",
+      lastname: "Elliott",
+      contact_email: "willcelliott13@gmail.com",
+      contact_phone: "+12315904833",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004to6jMAA",
+      firstname: "Paula",
+      lastname: "towe",
+      contact_email: "paula@farmfaregrocery.com",
+      contact_phone: "+18646999479",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004ygV8MAI",
+      firstname: "juan",
+      lastname: "gomez",
+      contact_email: "juan.yahoo@yahoo.com",
+      contact_phone: "+14078965470",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004vvdfMAA",
+      firstname: "Raymond",
+      lastname: "Williams",
+      contact_email: "kippyrays@gmail.com",
+      contact_phone: "+13025935812",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004txYEMAY",
+      firstname: "Gail",
+      lastname: "Arias",
+      contact_email: "gailsgardenbakery@gmail.com",
+      contact_phone: "+17042420692",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu0000050MdaMAE",
+      firstname: "Caleb",
+      lastname: "Savory",
+      contact_email: "calebdc1997@gmail.com",
+      contact_phone: "+12146093739",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },  {
+      contactid: "00QNu000005apUqMAI",
+      firstname: "Erik",
+      lastname: "Brown",
+      contact_email: "erik.brown@wholefoods.com",
+      contact_phone: "+17748434750",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "booked",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004uj9vMAA",
+      firstname: "Kurt",
+      lastname: "Bayliss",
+      contact_email: "kurt.bayliss@fullharvest.com",
+      contact_phone: "+13177094486",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004v3GeMAI",
+      firstname: "Tynesha",
+      lastname: "Cummings",
+      contact_email: "info@renewyourtemple.live",
+      contact_phone: "+15513995069",
+      type: "Buyer",
+      campaign: "outbound_harvey",
+      status: "booked",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004pqqIMAQ",
+      firstname: "Mark",
+      lastname: "R",
+      contact_email: "setters.rentals@gmail.com",
+      contact_phone: "+13152141712",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004scPNMAY",
+      firstname: "Nancy",
+      lastname: "Dudney",
+      contact_email: "nancy@patagoniaorchardsllc.com",
+      contact_phone: "+15208203190",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004raO5MAI",
+      firstname: "Daisy",
+      lastname: "Bell",
+      contact_email: "msasdj@gmail.com",
+      contact_phone: "+13128377534",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004rcwCMAQ",
+      firstname: "Will",
+      lastname: "Elliott",
+      contact_email: "willcelliott13@gmail.com",
+      contact_phone: "+12315904833",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004to6jMAA",
+      firstname: "Paula",
+      lastname: "towe",
+      contact_email: "paula@farmfaregrocery.com",
+      contact_phone: "+18646999479",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004ygV8MAI",
+      firstname: "juan",
+      lastname: "gomez",
+      contact_email: "juan.yahoo@yahoo.com",
+      contact_phone: "+14078965470",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004vvdfMAA",
+      firstname: "Raymond",
+      lastname: "Williams",
+      contact_email: "kippyrays@gmail.com",
+      contact_phone: "+13025935812",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004txYEMAY",
+      firstname: "Gail",
+      lastname: "Arias",
+      contact_email: "gailsgardenbakery@gmail.com",
+      contact_phone: "+17042420692",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu0000050MdaMAE",
+      firstname: "Caleb",
+      lastname: "Savory",
+      contact_email: "calebdc1997@gmail.com",
+      contact_phone: "+12146093739",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },  {
+      contactid: "00QNu000005apUqMAI",
+      firstname: "Erik",
+      lastname: "Brown",
+      contact_email: "erik.brown@wholefoods.com",
+      contact_phone: "+17748434750",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "booked",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004uj9vMAA",
+      firstname: "Kurt",
+      lastname: "Bayliss",
+      contact_email: "kurt.bayliss@fullharvest.com",
+      contact_phone: "+13177094486",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004v3GeMAI",
+      firstname: "Tynesha",
+      lastname: "Cummings",
+      contact_email: "info@renewyourtemple.live",
+      contact_phone: "+15513995069",
+      type: "Buyer",
+      campaign: "outbound_harvey",
+      status: "booked",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004pqqIMAQ",
+      firstname: "Mark",
+      lastname: "R",
+      contact_email: "setters.rentals@gmail.com",
+      contact_phone: "+13152141712",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004scPNMAY",
+      firstname: "Nancy",
+      lastname: "Dudney",
+      contact_email: "nancy@patagoniaorchardsllc.com",
+      contact_phone: "+15208203190",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004raO5MAI",
+      firstname: "Daisy",
+      lastname: "Bell",
+      contact_email: "msasdj@gmail.com",
+      contact_phone: "+13128377534",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: false,
+    },
+    {
+      contactid: "00QNu000004rcwCMAQ",
+      firstname: "Will",
+      lastname: "Elliott",
+      contact_email: "willcelliott13@gmail.com",
+      contact_phone: "+12315904833",
+      type: "Supplier",
+      campaign: "harvey_supplier",
+      status: "Open",
+      gepeto_switch: true,
+    },
+    {
+      contactid: "00QNu000004to6jMAA",
+      firstname: "Paula",
+      lastname: "towe",
+      contact_email: "paula@farmfaregrocery.com",
+      contact_phone: "+18646999479",
+      type: "Buyer",
+      campaign: "harvey_buyer",
+      status: "Open",
+      gepeto_switch: true,
     },
   ];
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [contactId, setContactId] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [type, setType] = useState("");
   const [campaign, setCampaign] = useState("");
+  const [status, setStatus] = useState("");
+  const [gepeto, setGepeto] = useState("");
 
+
+  const nameBodyTemplate = (rowData) => {
+    return `${rowData.firstname} ${rowData.lastname}`;
+};
   return (
     <div>
       {/* Search filters */}
@@ -138,27 +507,35 @@ function Customer() {
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
           <InputText
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="ContactId"
+            value={contactId}
+            onChange={(e) => setContactId(e.target.value)}
+          />
+        </span>
+
+        <span className="flex items-center gap-1 bg-white p-3">
+          <i className="pi pi-search" />
+          <InputText
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </span>
 
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
           <InputText
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </span>
-
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
           <InputText
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
           />
         </span>
 
@@ -170,6 +547,23 @@ function Customer() {
             onChange={(e) => setCampaign(e.target.value)}
           />
         </span>
+
+        <span className="flex items-center gap-2 bg-white p-3">
+          <i className="pi pi-search" />
+          <InputText
+            placeholder="Status"
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+          />
+        </span>
+        <span className="flex items-center gap-2 bg-white p-3">
+          <i className="pi pi-search" />
+          <InputText
+            placeholder="Switch"
+            value={gepeto}
+            onChange={(e) => setGepeto(e.target.value)}
+          />
+        </span>
       </div>
       <DataTable
         value={dummyData}
@@ -178,7 +572,7 @@ function Customer() {
         rowsPerPageOptions={[10, 20, 30, 40]}
         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
         currentPageReportTemplate="{first} to {last} of {totalRecords}"
-        className="bg-white p-7"
+        className="bg-white p-4 text-sm"
         pt={{
           thead: "",
           wrapper: "mb-4",
@@ -213,27 +607,27 @@ function Customer() {
         }}
       >
         <Column
+        className="border-t-[1px] border-gray-200 p-4"
+        field="contactid"
+        header="ContactId"
+        headerClassName="pb-4"
+      ></Column>
+        <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="fName"
-          header="First Name"
+          body={nameBodyTemplate}
+          header="Name"
           headerClassName="pb-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="lName"
-          header="Last Name"
+          field="contact_phone"
+          header="PhoneNo"
           headerClassName="pb-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="email"
-          header="Email"
-          headerClassName="pb-4"
-        ></Column>
-        <Column
-          className="border-t-[1px] border-gray-200 p-4"
-          field="phone"
-          header="Phone"
+          field="type"
+          header="Type"
           headerClassName="pb-4"
         ></Column>
         <Column
@@ -246,6 +640,12 @@ function Customer() {
           className="border-t-[1px] border-gray-200 p-4"
           field="status"
           header="Status"
+          headerClassName="pb-4"
+        ></Column>
+        <Column
+          className="border-t-[1px] border-gray-200 p-4"
+          field="gepeto_switch"
+          header="Switch"
           headerClassName="pb-4"
         ></Column>
       </DataTable>

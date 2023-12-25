@@ -3,7 +3,7 @@ import { Avatar } from "primereact/avatar";
 
 function Header() {
   return (
-    <header className="fixed top-0 z-[960] flex w-full items-center justify-between bg-white px-4 py-3">
+    <header className="fixed top-0 z-[960] flex w-full h-28 items-center justify-between bg-white px-4 py-3">
       <Link className="inline-block max-h-20 max-w-48" to="/dashboard">
         <img src="/assets/img/logo.png" />
       </Link>

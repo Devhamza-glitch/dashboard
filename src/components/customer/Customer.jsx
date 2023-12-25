@@ -28,6 +28,7 @@ const CustomTabMenu = styled(TabMenu)`
     }
   }
 `;
+import { Link, useNavigate } from "react-router-dom";
 
 function Customer() {
   const dummyData = [
@@ -294,7 +295,8 @@ function Customer() {
       campaign: "harvey_buyer",
       status: "Open",
       gepeto_switch: true,
-    },  {
+    },
+    {
       contactid: "00QNu000005apUqMAI",
       firstname: "Erik",
       lastname: "Brown",
@@ -425,7 +427,8 @@ function Customer() {
       campaign: "harvey_buyer",
       status: "Open",
       gepeto_switch: true,
-    },  {
+    },
+    {
       contactid: "00QNu000005apUqMAI",
       firstname: "Erik",
       lastname: "Brown",
@@ -523,10 +526,10 @@ function Customer() {
   const [gepeto, setGepeto] = useState("");
     const [activeIndex, setActiveIndex] = useState(0);
 
-
   const nameBodyTemplate = (rowData) => {
     return `${rowData.firstname} ${rowData.lastname}`;
   };
+
   const statusBodyTemplate = (rowData) => {
     return rowData.status == 'booked' ? "Booked": "Not Booked"
   };
@@ -546,6 +549,16 @@ function Customer() {
         ? <i className="pi pi-check-circle" style={{ color: 'green' }}></i> 
         : <i className="pi pi-check-circle" style={{ color: 'red' }}></i>;
 };
+
+  const actionHeaderTemplate = (rowData) => (
+    <Link
+      to={`${rowData.contactid}`}
+      className="inline-block rounded-md bg-primary px-4 py-2 font-medium text-white"
+    >
+      Open
+    </Link>
+  );
+
   return (
     <div>
       {/* Search filters */}
@@ -633,7 +646,6 @@ function Customer() {
         currentPageReportTemplate="{first} to {last} of {totalRecords}"
         className="bg-white p-4 text-sm"
         pt={{
-          thead: "",
           wrapper: "mb-4",
           paginator: {
             root: "flex items-center justify-start flex-wrap bg-white text-gray-500 border-0 px-4 py-2 rounded-md",

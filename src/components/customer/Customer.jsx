@@ -2,6 +2,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Customer() {
   const dummyData = [
@@ -268,7 +269,8 @@ function Customer() {
       campaign: "harvey_buyer",
       status: "Open",
       gepeto_switch: true,
-    },  {
+    },
+    {
       contactid: "00QNu000005apUqMAI",
       firstname: "Erik",
       lastname: "Brown",
@@ -399,7 +401,8 @@ function Customer() {
       campaign: "harvey_buyer",
       status: "Open",
       gepeto_switch: true,
-    },  {
+    },
+    {
       contactid: "00QNu000005apUqMAI",
       firstname: "Erik",
       lastname: "Brown",
@@ -496,10 +499,10 @@ function Customer() {
   const [status, setStatus] = useState("");
   const [gepeto, setGepeto] = useState("");
 
-
   const nameBodyTemplate = (rowData) => {
     return `${rowData.firstname} ${rowData.lastname}`;
   };
+
   const statusBodyTemplate = (rowData) => {
     return rowData.status == 'booked' ? "Booked": "Not Booked"
   };
@@ -519,10 +522,20 @@ function Customer() {
         ? <i className="pi pi-check-circle" style={{ color: 'green' }}></i> 
         : <i className="pi pi-check-circle" style={{ color: 'red' }}></i>;
 };
+
+  const actionHeaderTemplate = (rowData) => (
+    <Link
+      to={`${rowData.contactid}`}
+      className="inline-block rounded-md bg-primary px-4 py-2 font-medium text-white"
+    >
+      Open
+    </Link>
+  );
+
   return (
     <div>
       {/* Search filters */}
-      <div className="mb-3 flex gap-3 ">
+      <div className="mb-3 flex flex-wrap gap-3">
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
           <InputText
@@ -593,7 +606,6 @@ function Customer() {
         currentPageReportTemplate="{first} to {last} of {totalRecords}"
         className="bg-white p-4 text-sm"
         pt={{
-          thead: "",
           wrapper: "mb-4",
           paginator: {
             root: "flex items-center justify-start flex-wrap bg-white text-gray-500 border-0 px-4 py-2 rounded-md",
@@ -626,46 +638,53 @@ function Customer() {
         }}
       >
         <Column
-        className="border-t-[1px] border-gray-200 p-4"
-        field="contactid"
-        header="ContactId"
-        headerClassName="pb-4"
-      ></Column>
+          className="border-t-[1px] border-gray-200 p-4"
+          field="contactid"
+          header="ContactId"
+          headerClassName="p-4"
+        ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body={nameBodyTemplate}
           header="Name"
-          headerClassName="pb-4"
+          headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field="contact_phone"
           header="PhoneNo"
-          headerClassName="pb-4"
+          headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field="type"
           header="Type"
-          headerClassName="pb-4"
+          headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field={campaignBodyTemplate}
           header="Campaign"
-          headerClassName="pb-4"
+          headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body = {statusBodyTemplate}
           header="Status"
-          headerClassName="pb-4"
+          headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body ={switchBodyTemplate}
           header="Switch"
-          headerClassName="pb-4"
+          headerClassName="p-4"
+          body={renderSwitchColumn}
+        ></Column>
+        <Column
+          className="border-t-[1px] border-gray-200 p-4"
+          header="Action"
+          headerClassName="p-4"
+          body={actionHeaderTemplate}
         ></Column>
       </DataTable>
     </div>

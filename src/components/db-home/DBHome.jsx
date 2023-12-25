@@ -8,19 +8,19 @@ const widgetsData = [
     messages: 658,
     inbound: 197,
     outbound: 461,
-    initial : 123,
+    initial: 123,
   },
   {
     contacts: 158,
     buyer: 120,
     supplier: 38,
-    outbound : 23
+    outbound: 23,
   },
   {
     booked: 6,
     buyer: 2,
     supplier: 4,
-    outbound : 1
+    outbound: 1,
   },
 ];
 
@@ -43,6 +43,9 @@ const CustomTabMenu = styled(TabMenu)`
     .p-menuitem-link {
       color: #fff;
     }
+  }
+  .p-menuitem-link {
+    padding: 12px;
   }
 `;
 
@@ -111,7 +114,7 @@ function DBHome() {
   }, []);
   return (
     <>
-      <div className="mb-8 flex mr-3 items-center justify-between">
+      <div className="mb-8 mr-3 flex items-center justify-between">
         <h1 className="font-bold">Welcome to Your Dashboard!</h1>
         <div className="flex flex-1 justify-end">
           <CustomTabMenu
@@ -119,31 +122,36 @@ function DBHome() {
             activeIndex={activeIndex}
             onTabChange={(e) => setActiveIndex(e.index)}
             pt={{
-              menuitem: "p-3 bg-white",
+              menuitem: "bg-white",
             }}
           />
         </div>
       </div>
       <div className="mb-7 mr-3 grid grid-cols-3 gap-7">
         {widgetsData.map((widget, i) => (
-          <div key={i} className="shadow-dbWidget rounded-xl bg-white p-5">
-          <div>
-          {Object.entries(widget).map(([key, value], index) => (
-              <div key={key} className="mb-2 flex items-center justify-between" 
-                   style={{ fontSize: index === 0 ? '20px' : '13px' }}>
+          <div key={i} className="rounded-xl bg-white p-5 shadow-dbWidget">
+            <div>
+              {Object.entries(widget).map(([key, value], index) => (
+                <div
+                  key={key}
+                  className="mb-2 flex items-center justify-between"
+                  style={{ fontSize: index === 0 ? "20px" : "13px" }}
+                >
                   <h3 className="font-medium capitalize">{key}</h3>
                   <div className="flex justify-center gap-3">
-                      <span className="flex items-center justify-center gap-2">
-                          <h6 className="text-small">{value >= 0 && value <= 9 ? `0${value}` : value}</h6>
-                      </span>
+                    <span className="flex items-center justify-center gap-2">
+                      <h6 className="text-small">
+                        {value >= 0 && value <= 9 ? `0${value}` : value}
+                      </h6>
+                    </span>
                   </div>
-              </div>
-          ))}
-      </div>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
-      <div className="bg-white shadow-dbWidget  p-5 mr-3 rounded-2xl">
+      <div className="mr-3 rounded-2xl  bg-white p-5 shadow-dbWidget">
         <Chart type="line" data={chartData} options={chartOptions} />
       </div>
     </>

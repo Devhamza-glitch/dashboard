@@ -499,6 +499,25 @@ function Customer() {
 
   const nameBodyTemplate = (rowData) => {
     return `${rowData.firstname} ${rowData.lastname}`;
+  };
+  const statusBodyTemplate = (rowData) => {
+    return rowData.status == 'booked' ? "Booked": "Not Booked"
+  };
+  const campaignBodyTemplate = (rowData) => {
+    if (rowData.campaign == 'harvey_buyer'){
+      return 'Harvey Buyer'
+    }
+    if (rowData.campaign == 'harvey_supplier'){
+      return 'Harvey Supplier'
+    }
+    if (rowData.campaign == 'outbound_harvey'){
+      return 'Harvey OutBound'
+    }
+  };
+  const switchBodyTemplate = (rowData) => {
+    return rowData.gepeto_switch === true 
+        ? <i className="pi pi-check-circle" style={{ color: 'green' }}></i> 
+        : <i className="pi pi-check-circle" style={{ color: 'red' }}></i>;
 };
   return (
     <div>
@@ -632,19 +651,19 @@ function Customer() {
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="campaign"
+          field={campaignBodyTemplate}
           header="Campaign"
           headerClassName="pb-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="status"
+          body = {statusBodyTemplate}
           header="Status"
           headerClassName="pb-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          field="gepeto_switch"
+          body ={switchBodyTemplate}
           header="Switch"
           headerClassName="pb-4"
         ></Column>

@@ -547,7 +547,7 @@ function Customer() {
   const switchBodyTemplate = (rowData) => {
     return rowData.gepeto_switch === true 
         ? <i className="pi pi-check-circle" style={{ color: 'green' }}></i> 
-        : <i className="pi pi-check-circle" style={{ color: 'red' }}></i>;
+        : <i className="pi pi-exclamation-circle" style={{ color: 'red' }}></i>;
 };
 
   const actionHeaderTemplate = (rowData) => (

@@ -25,7 +25,7 @@ function CustomerDetails() {
             <div key={i} className="mb-4">
               {detail.name === "Switch" ? (
                 <>
-                  <h3 className="text-sm capitalize mb-1">{detail.name}</h3>
+                  <h3 className="mb-1 text-sm capitalize">{detail.name}</h3>
                   {detail.value ? (
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500">
                       <i className="pi pi-check text-xs font-extrabold text-white"></i>

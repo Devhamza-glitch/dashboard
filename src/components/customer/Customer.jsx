@@ -5,8 +5,6 @@ import { TabMenu } from "primereact/tabmenu";
 import { useState } from "react";
 import styled from "styled-components";
 
-
-
 const items = [
   { label: "24h" },
   { label: "7 days" },
@@ -26,6 +24,9 @@ const CustomTabMenu = styled(TabMenu)`
     .p-menuitem-link {
       color: #fff;
     }
+  }
+  .p-menuitem-link {
+    padding: 12px;
   }
 `;
 import { Link, useNavigate } from "react-router-dom";
@@ -524,7 +525,7 @@ function Customer() {
   const [campaign, setCampaign] = useState("");
   const [status, setStatus] = useState("");
   const [gepeto, setGepeto] = useState("");
-    const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const nameBodyTemplate = (rowData) => {
     return `${rowData.firstname} ${rowData.lastname}`;
@@ -545,7 +546,6 @@ function Customer() {
     }
   };
   const switchBodyTemplate = (rowData) => {
-
     return rowData.gepeto_switch === true ? (
       <i className="pi pi-check-circle" style={{ color: "green" }}></i>
     ) : (
@@ -582,20 +582,20 @@ function Customer() {
   return (
     <div>
       {/* Search filters */}
-      <div className="mb-8 flex mr-3 pt-4 pl-2 items-center justify-between">
-      <h1 className="font-bold">Customers</h1>
-      <div className="flex flex-1 justify-end">
-        <CustomTabMenu
-          model={items}
-          activeIndex={activeIndex}
-          onTabChange={(e) => setActiveIndex(e.index)}
-          pt={{
-            menuitem: "p-3 bg-white",
-          }}
-        />
+      <div className="mb-8 mr-3 flex items-center justify-between pl-2 pt-4">
+        <h1 className="font-bold">Customers</h1>
+        <div className="flex flex-1 justify-end">
+          <CustomTabMenu
+            model={items}
+            activeIndex={activeIndex}
+            onTabChange={(e) => setActiveIndex(e.index)}
+            pt={{
+              menuitem: "bg-white",
+            }}
+          />
+        </div>
       </div>
-    </div>
-      <div className="mb-3 flex gap-3 ">
+      <div className="mb-3 flex flex-wrap gap-3 ">
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
           <InputText
@@ -698,11 +698,11 @@ function Customer() {
         }}
       >
         <Column
-        className="border-t-[1px] border-gray-200 p-4"
-        field="contactid"
-        header="ContactId"
-        headerClassName="pb-4 pl-4"
-      ></Column>
+          className="border-t-[1px] border-gray-200 p-4"
+          field="contactid"
+          header="ContactId"
+          headerClassName="pb-4 pl-4"
+        ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body={nameBodyTemplate}
@@ -735,9 +735,15 @@ function Customer() {
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          // body ={switchBodyTemplate}
+          body={switchBodyTemplate}
           header="Switch"
           headerClassName="pb-4 pl-4"
+        ></Column>
+           <Column
+          className="border-t-[1px] border-gray-200 p-4"
+          header="Action"
+          headerClassName="pb-4 pl-4"
+          body={actionHeaderTemplate}
         ></Column>
       </DataTable>
     </div>

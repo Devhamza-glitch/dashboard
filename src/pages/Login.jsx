@@ -28,8 +28,8 @@ function Login() {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "harveydashboard@hellogepeto.com",
+      password: "gepeto123",
     },
     validate,
     onSubmit: async (values) => {
@@ -69,7 +69,7 @@ function Login() {
                 <div className="mb-9">
                   <div>
                     <span className="">
-                      <label htmlFor="email" className="text-primary pl-2">
+                      <label htmlFor="email" className="pl-2 text-primary">
                         Email
                       </label>
                       <InputText
@@ -92,7 +92,7 @@ function Login() {
                 <div>
                   <div className="relative">
                     <span>
-                      <label htmlFor="password" className="text-primary pl-2">
+                      <label htmlFor="password" className="pl-2 text-primary">
                         Password
                       </label>
                       <InputText
@@ -126,13 +126,13 @@ function Login() {
                 </div>
 
                 <Link
-                  className="text-primary my-5 block text-center"
+                  className="my-5 block text-center text-primary"
                   to="/forget"
                 >
                   Forgot Password?
                 </Link>
                 <div className="mt-5">
-                  <button className="bg-primary w-full rounded-md px-10 py-3 text-white">
+                  <button className="w-full rounded-md bg-primary px-10 py-3 text-white">
                     Continue
                   </button>
                 </div>
@@ -140,7 +140,7 @@ function Login() {
                   Don't have an account?
                   <Link
                     to="/signup"
-                    className="text-primary ml-1 border-b border-dotted border-gray-500 font-medium"
+                    className="ml-1 border-b border-dotted border-gray-500 font-medium text-primary"
                   >
                     Signup
                   </Link>

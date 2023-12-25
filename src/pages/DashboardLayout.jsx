@@ -9,7 +9,7 @@ function DashboardLayout() {
       <Header />
       <main className="">
         <Sidebar />
-        <div className="pl-80 pt-32 pr-4">
+        <div className="pl-80 pt-28 pr-4">
           <Outlet />
         </div>
       </main>

@@ -114,7 +114,7 @@ function DBHome() {
   }, []);
   return (
     <>
-      <div className="mb-8 mr-3 flex items-center justify-between">
+      <div className="mb-8 flex mr-3 pt-4 pl-2 items-center justify-between">
         <h1 className="font-bold">Welcome to Your Dashboard!</h1>
         <div className="flex flex-1 justify-end">
           <CustomTabMenu

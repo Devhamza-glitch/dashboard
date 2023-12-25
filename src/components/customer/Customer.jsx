@@ -739,7 +739,7 @@ function Customer() {
           header="Switch"
           headerClassName="pb-4 pl-4"
         ></Column>
-           <Column
+        <Column
           className="border-t-[1px] border-gray-200 p-4"
           header="Action"
           headerClassName="pb-4 pl-4"

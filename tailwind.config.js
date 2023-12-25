@@ -6,6 +6,10 @@ export default {
       colors: {
         primary: "#28784c",
       },
+      backgroundImage: {
+        skeleton:
+          "linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0))",
+      },
       boxShadow: {
         dbWidget: "0 3px 5px rgba(0, 0, 0, 0.1)",
       },

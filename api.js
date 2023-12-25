@@ -4,32 +4,46 @@ import moment from "moment-timezone";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 
+const ctTimezone = "America/Chicago";
+const utcTimezone = "UTC";
+const currentTime = moment().tz(ctTimezone);
+
 // Create a single supabase client for interacting with your database
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export async function getDays(days) {
-  const ctTimezone = "America/Chicago";
-  const utcTimezone = "UTC";
-  const currentTime = moment().tz(ctTimezone);
+export function getDays(selectedOption) {
   let fromDate;
 
-  if (days === "daily") {
+  if (selectedOption === "24h") {
     fromDate = currentTime
       .subtract(1, "days")
       .tz(utcTimezone)
       .format("YYYY-MM-DD HH:mm:ss.SSSSSSZ");
-  } else if (days === "weekly") {
+  } else if (selectedOption === "7 days") {
     fromDate = currentTime
       .subtract(7, "days")
       .tz(utcTimezone)
       .format("YYYY-MM-DD HH:mm:ss.SSSSSSZ");
+  } else if (selectedOption === "30 days") {
+    fromDate = currentTime
+      .subtract(30, "days")
+      .tz(utcTimezone)
+      .format("YYYY-MM-DD HH:mm:ss.SSSSSSZ");
+  } else if (selectedOption === "YTD") {
+    fromDate = moment()
+      .startOf("year")
+      .tz(utcTimezone)
+      .format("YYYY-MM-DD HH:mm:ss.SSSSSSZ");
+  } else if (selectedOption === "All") {
+    fromDate = null;
   }
-  return fromDate ? fromDate : null;
+
+  return fromDate;
 }
 
 export async function getMessageCounts(days) {
   const fromDate = await getDays(days);
-  console.log("date", fromDate);
+
   const dateFilter = (query) =>
     fromDate ? query.gte("created_at", fromDate) : query;
 

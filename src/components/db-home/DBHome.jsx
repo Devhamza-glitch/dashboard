@@ -183,15 +183,15 @@ function DBHome() {
               <div key={i} className="">
                 <Skeleton
                   width="10rem"
-                  className="mb-2  rounded-xl after:bg-green-100"
+                  className="mb-2  rounded-xl after:bg-primary"
                 ></Skeleton>
                 <Skeleton
                   width="5rem"
-                  className="mb-2 rounded-xl after:bg-green-100"
+                  className="mb-2 rounded-xl after:bg-primary"
                 ></Skeleton>
                 <Skeleton
                   width="2rem"
-                  className="w-4 rounded-xl after:bg-green-100"
+                  className="w-4 rounded-xl after:bg-primary"
                 ></Skeleton>
               </div>
             ))}

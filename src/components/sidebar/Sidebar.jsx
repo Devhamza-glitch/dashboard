@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <aside className="fixed  h-full w-72 top-28 z-[960]  bg-white p-4">
+    <aside className="fixed  h-full w-72 top-24 z-[960] shadow-dbWidget  bg-white p-4">
       <ul>
         <li className="">
           <NavLink

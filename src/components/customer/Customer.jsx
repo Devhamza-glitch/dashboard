@@ -1,7 +1,33 @@
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
+import { TabMenu } from "primereact/tabmenu";
 import { useState } from "react";
+import styled from "styled-components";
+
+
+
+const items = [
+  { label: "24h" },
+  { label: "7 days" },
+  { label: "30 days" },
+  { label: "YTD" },
+  { label: "All" },
+];
+
+const CustomTabMenu = styled(TabMenu)`
+  background-color: transparent;
+  font-family: "Poppins";
+  font-size: 12px;
+  border-radius: 12px;
+
+  .p-tabmenuitem.p-highlight {
+    background-color: #28784c;
+    .p-menuitem-link {
+      color: #fff;
+    }
+  }
+`;
 
 function Customer() {
   const dummyData = [
@@ -495,6 +521,7 @@ function Customer() {
   const [campaign, setCampaign] = useState("");
   const [status, setStatus] = useState("");
   const [gepeto, setGepeto] = useState("");
+    const [activeIndex, setActiveIndex] = useState(0);
 
 
   const nameBodyTemplate = (rowData) => {
@@ -522,6 +549,19 @@ function Customer() {
   return (
     <div>
       {/* Search filters */}
+      <div className="mb-8 flex mr-3 pt-4 pl-2 items-center justify-between">
+      <h1 className="font-bold">Customers</h1>
+      <div className="flex flex-1 justify-end">
+        <CustomTabMenu
+          model={items}
+          activeIndex={activeIndex}
+          onTabChange={(e) => setActiveIndex(e.index)}
+          pt={{
+            menuitem: "p-3 bg-white",
+          }}
+        />
+      </div>
+    </div>
       <div className="mb-3 flex gap-3 ">
         <span className="flex items-center gap-2 bg-white p-3">
           <i className="pi pi-search" />
@@ -629,43 +669,43 @@ function Customer() {
         className="border-t-[1px] border-gray-200 p-4"
         field="contactid"
         header="ContactId"
-        headerClassName="pb-4"
+        headerClassName="pb-4 pl-4"
       ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body={nameBodyTemplate}
           header="Name"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field="contact_phone"
           header="PhoneNo"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field="type"
           header="Type"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           field={campaignBodyTemplate}
           header="Campaign"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body = {statusBodyTemplate}
           header="Status"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
           body ={switchBodyTemplate}
           header="Switch"
-          headerClassName="pb-4"
+          headerClassName="pb-4 pl-4"
         ></Column>
       </DataTable>
     </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 import { TabMenu } from "primereact/tabmenu";
 import styled from "styled-components";
+import { check, getAllContacts } from "../../../api";
 
 const widgetsData = [
   {
@@ -112,8 +113,13 @@ function DBHome() {
     setChartData(data);
     setChartOptions(options);
   }, []);
+  async function handleTest() {
+    const response = await getAllContacts();
+    console.log(response);
+  }
   return (
     <>
+      <button onClick={handleTest}>Test</button>
       <div className="mb-8 mr-3 flex items-center justify-between">
         <h1 className="font-bold">Welcome to Your Dashboard!</h1>
         <div className="flex flex-1 justify-end">

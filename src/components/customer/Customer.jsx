@@ -504,24 +504,43 @@ function Customer() {
   };
 
   const statusBodyTemplate = (rowData) => {
-    return rowData.status == 'booked' ? "Booked": "Not Booked"
+    return rowData.status == "booked" ? "Booked" : "Not Booked";
   };
   const campaignBodyTemplate = (rowData) => {
-    if (rowData.campaign == 'harvey_buyer'){
-      return 'Harvey Buyer'
+    if (rowData.campaign == "harvey_buyer") {
+      return "Harvey Buyer";
     }
-    if (rowData.campaign == 'harvey_supplier'){
-      return 'Harvey Supplier'
+    if (rowData.campaign == "harvey_supplier") {
+      return "Harvey Supplier";
     }
-    if (rowData.campaign == 'outbound_harvey'){
-      return 'Harvey OutBound'
+    if (rowData.campaign == "outbound_harvey") {
+      return "Harvey OutBound";
     }
   };
   const switchBodyTemplate = (rowData) => {
-    return rowData.gepeto_switch === true 
-        ? <i className="pi pi-check-circle" style={{ color: 'green' }}></i> 
-        : <i className="pi pi-check-circle" style={{ color: 'red' }}></i>;
-};
+    return rowData.gepeto_switch === true ? (
+      <i className="pi pi-check-circle" style={{ color: "green" }}></i>
+    ) : (
+      <i className="pi pi-check-circle" style={{ color: "red" }}></i>
+    );
+  };
+  const renderSwitchColumn = (rowData) => {
+    const isSwitchOn = rowData.gepeto_switch;
+
+    return (
+      <div className="flex justify-center">
+        {isSwitchOn ? (
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500">
+            <i className="pi pi-check text-xs font-extrabold text-white"></i>
+          </span>
+        ) : (
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500">
+            <i className="pi pi-times text-xs font-extrabold text-white"></i>
+          </span>
+        )}
+      </div>
+    );
+  };
 
   const actionHeaderTemplate = (rowData) => (
     <Link
@@ -669,13 +688,13 @@ function Customer() {
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          body = {statusBodyTemplate}
+          body={statusBodyTemplate}
           header="Status"
           headerClassName="p-4"
         ></Column>
         <Column
           className="border-t-[1px] border-gray-200 p-4"
-          body ={switchBodyTemplate}
+          // body ={switchBodyTemplate}
           header="Switch"
           headerClassName="p-4"
           body={renderSwitchColumn}
